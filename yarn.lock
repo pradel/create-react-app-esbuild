@@ -4348,6 +4348,7 @@ __metadata:
   resolution: "craco-esbuild@workspace:packages/craco-esbuild"
   dependencies:
     "@craco/craco": 5.7.0
+    esbuild-jest: 0.2.2
     esbuild-loader: ^2.4.0
     react-scripts: 3.4.3
   peerDependencies:
@@ -5413,6 +5414,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-jest@npm:0.2.2":
+  version: 0.2.2
+  resolution: "esbuild-jest@npm:0.2.2"
+  dependencies:
+    esbuild: ^0.6.16
+  checksum: 3fc31d2ab1da152ca83a6c0acc877c5e78abe9a46b552780f103c76fba42b974284211183937ceb688f7c1c0a7cb0c674f10f88de656ceb20a041158ac53374c
+  languageName: node
+  linkType: hard
+
 "esbuild-loader@npm:^2.4.0":
   version: 2.4.0
   resolution: "esbuild-loader@npm:2.4.0"
@@ -5423,6 +5433,15 @@ __metadata:
   peerDependencies:
     webpack: ^4.40.0 || ^5.0.0
   checksum: c75024fa1820666642e9472d721df968f64dac4bf90725ebad7defbec0f14b75906ca7ee77c1b21a7b8e83f4234067264491c5c2149185cc42cc34fa87b46078
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.6.16":
+  version: 0.6.34
+  resolution: "esbuild@npm:0.6.34"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 6f47ea7916d491445b32bd95de48f7f08a5ea06c714bec6e0276b66229ade4a976d32980d33919d118cb99449cb47cc8d0ee1c9c5c112ef0e9755ed5747941b9
   languageName: node
   linkType: hard
 

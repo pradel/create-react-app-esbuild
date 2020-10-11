@@ -47,12 +47,11 @@ module.exports = {
   /**
    * To process the js/ts files we replace the babel-loader with the swc jest loader
    */
-  // overrideJestConfig: ({
-  //   jestConfig,
-  //   pluginOptions,
-  //   context: { env, paths, resolve, rootDir },
-  // }) => {
-  // // TODO
-  //   return jestConfig;
-  // },
+  overrideJestConfig: ({ jestConfig }) => {
+    // Replace babel transform with swc
+    const key = Object.keys(jestConfig.transform)[0];
+    jestConfig.transform[key] = [require.resolve("esbuild-jest")];
+
+    return jestConfig;
+  },
 };

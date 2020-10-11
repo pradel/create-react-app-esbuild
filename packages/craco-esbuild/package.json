@@ -13,6 +13,7 @@
     "react-scripts": "^3.3.0"
   },
   "dependencies": {
+    "esbuild-jest": "0.2.2",
     "esbuild-loader": "^2.4.0"
   },
   "devDependencies": {
