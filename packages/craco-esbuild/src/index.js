@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { loaderByName, removeLoaders, addAfterLoader } = require("@craco/craco");
-const { ESBuildPlugin } = require("esbuild-loader");
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require("esbuild-loader");
 
 module.exports = {
   /**
@@ -29,6 +29,15 @@ module.exports = {
 
     // remove the babel loaders
     removeLoaders(webpackConfig, loaderByName("babel-loader"));
+
+    // Replace terser with esbuild
+    webpackConfig.optimization.minimizer[0] = new ESBuildMinifyPlugin(
+      pluginOptions && pluginOptions.esbuildLoaderOptions
+        ? pluginOptions.esbuildLoaderOptions
+        : {
+            target: "es2015",
+          }
+    );
 
     webpackConfig.plugins.push(new ESBuildPlugin());
 
