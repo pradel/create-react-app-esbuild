@@ -1,0 +1,79 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Test default react-scripts to compare time
+  test-react-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: yarn install --immutable
+
+      - name: Compile create-react-app examples using react-scripts
+        run: |
+          yarn workspaces foreach --include "with-javascript" run build-react-scripts
+          yarn workspaces foreach --include "with-typescript" run build-react-scripts
+
+      - name: Test create-react-app examples using react-scripts
+        run: |
+          yarn workspaces foreach --include "with-javascript" run test-react-scripts
+          yarn workspaces foreach --include "with-typescript" run test-react-scripts
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: yarn install --immutable
+
+      - name: Compile create-react-app examples using craco
+        run: |
+          yarn workspaces foreach --include "with-javascript" run build
+          yarn workspaces foreach --include "with-typescript" run build
+
+      - name: Test create-react-app examples using craco
+        run: |
+          yarn workspaces foreach --include "with-javascript" run test
+          yarn workspaces foreach --include "with-typescript" run test
