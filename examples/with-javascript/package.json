@@ -1,0 +1,39 @@
+{
+  "name": "with-javascript",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "5.7.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "craco-esbuild": "0.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
+  },
+  "scripts": {
+    "start": "craco start",
+    "start-react-scripts": "react-scripts start",
+    "build": "craco build",
+    "build-react-scripts": "react-scripts build",
+    "test": "craco test",
+    "test-react-scripts": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
