@@ -4,7 +4,7 @@ const { ESBuildPlugin, ESBuildMinifyPlugin } = require("esbuild-loader");
 
 module.exports = {
   /**
-   * To process the js/ts files we replace the babel-loader with the swc-loader
+   * To process the js/ts files we replace the babel-loader with the esbuild-loader
    */
   overrideWebpackConfig: ({
     webpackConfig,
@@ -45,12 +45,13 @@ module.exports = {
   },
 
   /**
-   * To process the js/ts files we replace the babel-loader with the swc jest loader
+   * To process the js/ts files we replace the babel-loader with the esbuild jest loader
    */
   overrideJestConfig: ({ jestConfig }) => {
-    // Replace babel transform with swc
-    const key = Object.keys(jestConfig.transform)[0];
-    jestConfig.transform[key] = [require.resolve("esbuild-jest")];
+    // TODO add back once https://github.com/aelbore/esbuild-jest/issues/7 is fixed
+    // // Replace babel transform with esbuild
+    // const key = Object.keys(jestConfig.transform)[0];
+    // jestConfig.transform[key] = [require.resolve("esbuild-jest")];
 
     return jestConfig;
   },
