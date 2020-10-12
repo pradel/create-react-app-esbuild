@@ -11,7 +11,7 @@ Use [esbuild](https://github.com/evanw/esbuild) in your [create-react-app](https
 
 ## Getting started
 
-Follow the [guide](https://github.com/pradel/create-react-app-esbuild/packages/craco-esbuild/README.md) to setup your project.
+Follow the [guide](https://github.com/pradel/create-react-app-esbuild/blob/main/packages/craco-esbuild/README.md) to setup your project.
 
 ## FAQ
 
