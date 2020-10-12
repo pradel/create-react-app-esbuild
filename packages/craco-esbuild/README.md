@@ -44,12 +44,12 @@ For example add this configuration to your `craco.config.js` configuration file:
 
 ```js
 // craco.config.js
-const CracoSwcPlugin = require("craco-swc");
+const CracoEsbuildPlugin = require("craco-esbuild");
 
 module.exports = {
   plugins: [
     {
-      plugin: CracoSwcPlugin,
+      plugin: CracoEsbuildPlugin,
       options: {
         esbuildLoaderOptions: {
           loader: "jsx",
