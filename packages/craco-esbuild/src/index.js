@@ -56,7 +56,7 @@ module.exports = {
 
     // Replace babel transform with esbuild
     const key = Object.keys(jestConfig.transform)[0];
-    jestConfig.transform[key] = require.resolve("esbuild-jest");
+    jestConfig.transform[key] = [require.resolve("esbuild-jest")];
 
     return jestConfig;
 
