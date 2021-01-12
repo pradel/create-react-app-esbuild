@@ -12,15 +12,20 @@ module.exports = {
     context: { paths },
   }) => {
     const useTypeScript = fs.existsSync(paths.appTsConfig);
+    const { esbuildLoaderOptions } = pluginOptions;
+
+    // add includePaths custom option, for including files/components in other folders than src
+    // Used as in addition to paths.appSrc, optional parameter.
+    const optionalIncludes = esbuildLoaderOptions && esbuildLoaderOptions.includePaths || [];
 
     // add esbuild-loader
     addAfterLoader(webpackConfig, loaderByName("babel-loader"), {
       test: /\.(js|mjs|jsx|ts|tsx)$/,
-      include: paths.appSrc,
+      include: [paths.appSrc, ...optionalIncludes],
       loader: require.resolve("esbuild-loader"),
       options:
-        pluginOptions && pluginOptions.esbuildLoaderOptions
-          ? pluginOptions.esbuildLoaderOptions
+        esbuildLoaderOptions
+          ? esbuildLoaderOptions
           : {
               loader: useTypeScript ? "tsx" : "jsx",
               target: "es2015",
