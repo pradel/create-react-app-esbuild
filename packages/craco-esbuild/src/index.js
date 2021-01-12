@@ -56,7 +56,18 @@ module.exports = {
 
     // Replace babel transform with esbuild
     const key = Object.keys(jestConfig.transform)[0];
-    jestConfig.transform[key] = [require.resolve("esbuild-jest")];
+
+    // FIX: currently not working for file ext. ".js" (it has to be .jsx)
+    jestConfig.transform[key] = [
+      require.resolve("esbuild-jest"),
+      {
+        sourcemap: false,
+        loaders: {
+          '.js': 'jsx',
+          '.ts': 'tsx'
+        },
+      },
+    ];
 
     return jestConfig;
 
