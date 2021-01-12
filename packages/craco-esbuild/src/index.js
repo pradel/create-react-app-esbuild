@@ -53,16 +53,10 @@ module.exports = {
    * To process the js/ts files we replace the babel-loader with the esbuild jest loader
    */
   overrideJestConfig: ({ jestConfig, context: { paths } }) => {
-    const useTypeScript = fs.existsSync(paths.appTsConfig);
 
     // Replace babel transform with esbuild
     const key = Object.keys(jestConfig.transform)[0];
-    jestConfig.transform[key] = [
-      require.resolve("esbuild-jest"),
-      {
-        loader: useTypeScript ? "tsx" : "jsx",
-      },
-    ];
+    jestConfig.transform[key] = require.resolve("esbuild-jest");
 
     return jestConfig;
 
