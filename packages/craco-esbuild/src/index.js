@@ -12,11 +12,11 @@ module.exports = {
     context: { paths },
   }) => {
     const useTypeScript = fs.existsSync(paths.appTsConfig);
-    const esbuildLoaderOptions = pluginOptions.esbuildLoaderOptions;
+    const esbuildLoaderOptions = pluginOptions ? pluginOptions.esbuildLoaderOptions : {};
 
     // add includePaths custom option, for including files/components in other folders than src
     // Used as in addition to paths.appSrc, optional parameter.
-    const optionalIncludes = esbuildLoaderOptions && esbuildLoaderOptions.includePaths || [];
+    const optionalIncludes = pluginOptions && pluginOptions.includePaths || [];
 
     // add esbuild-loader
     addAfterLoader(webpackConfig, loaderByName("babel-loader"), {
@@ -81,6 +81,7 @@ module.exports = {
     // Reason for this is esbuild-jest plugin. It considers only loaders or other options from the last transformer
     // You can see it for yourself in: /node_modules/esbuild-jest/esbuid-jest.js:21 getOptions method
     // also in process method line 32 gives empty loaders, because options is already empty object
+    // Issue reported here: https://github.com/aelbore/esbuild-jest/issues/18
     Object.keys(jestConfig.transform).forEach(key => {
       if (babelKey === key) return; // ebuild-jest transform, already has loader
 
