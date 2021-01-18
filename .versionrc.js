@@ -1,13 +1,35 @@
-module.exports = {
-  skip: {
-    // This is handled by the bash script
-    commit: true,
-    tag: true,
+const exampleUpdater = {
+  readVersion: (contents) => {
+    return JSON.parse(contents).dependencies["craco-esbuild"];
   },
+  writeVersion: (contents, version) => {
+    const json = JSON.parse(contents);
+    json.dependencies["craco-esbuild"] = version;
+    return JSON.stringify(json);
+  },
+};
+
+module.exports = {
   // Where we read the current version
   packageFiles: "packages/craco-esbuild/package.json",
   // Empty array as we update the version in the release bash script
-  bumpFiles: [],
+  bumpFiles: [
+    {
+      filename: "packages/craco-esbuild/package.json",
+      type: "json",
+    },
+    {
+      filename: "examples/with-javascript/package.json",
+      updater: exampleUpdater,
+    },
+    {
+      filename: "examples/with-typescript/package.json",
+      updater: exampleUpdater,
+    },
+  ],
+  scripts: {
+    precommit: "yarn && git add yarn.lock",
+  },
   // Configuration passed down to the preset
   types: [
     {

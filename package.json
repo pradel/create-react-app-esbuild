@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version -a && yarn workspace craco-esbuild npm publish"
   },
   "workspaces": [
     "packages/*",
