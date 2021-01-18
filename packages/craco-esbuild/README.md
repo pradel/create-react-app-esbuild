@@ -27,7 +27,7 @@ Add this configuration to your `craco.config.js` configuration file:
 
 ```js
 // craco.config.js
-const CracoEsbuildPlugin = require("craco-esbuild");
+const CracoEsbuildPlugin = require('craco-esbuild');
 
 module.exports = {
   plugins: [{ plugin: CracoEsbuildPlugin }],
@@ -59,17 +59,17 @@ For example add this configuration to your `craco.config.js` configuration file:
 
 ```js
 // craco.config.js
-const CracoEsbuildPlugin = require("craco-esbuild");
+const CracoEsbuildPlugin = require('craco-esbuild');
 
 module.exports = {
   plugins: [
     {
       plugin: CracoEsbuildPlugin,
       options: {
-        includePaths: ["/external/dir/with/components"], // Optional. If you want to include components which are not in src folder
+        includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
         esbuildLoaderOptions: {
-          loader: "jsx",
-          target: "es2015",
+          loader: 'jsx',
+          target: 'es2015',
         },
       },
     },
