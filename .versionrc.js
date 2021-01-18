@@ -28,7 +28,7 @@ module.exports = {
     },
   ],
   scripts: {
-    precommit: 'yarn && git add yarn.lock && yarn prettier',
+    postbump: 'yarn && git add yarn.lock && yarn prettier',
   },
   // Configuration passed down to the preset
   types: [
