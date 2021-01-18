@@ -1,7 +1,13 @@
 {
   "private": true,
+  "scripts": {
+    "release": "standard-version"
+  },
   "workspaces": [
     "packages/*",
     "examples/*"
-  ]
+  ],
+  "devDependencies": {
+    "standard-version": "9.1.0"
+  }
 }
