@@ -1,7 +1,18 @@
 {
   "private": true,
+  "scripts": {
+    "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx,yml}\"",
+    "release": "standard-version -a && yarn workspace craco-esbuild npm publish"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
   "workspaces": [
     "packages/*",
     "examples/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "2.2.1",
+    "standard-version": "9.1.0"
+  }
 }

@@ -1,6 +1,6 @@
-const fs = require("fs");
-const { loaderByName, removeLoaders, addAfterLoader } = require("@craco/craco");
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require("esbuild-loader");
+const fs = require('fs');
+const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
   /**
@@ -21,27 +21,27 @@ module.exports = {
       (pluginOptions && pluginOptions.includePaths) || [];
 
     // add esbuild-loader
-    addAfterLoader(webpackConfig, loaderByName("babel-loader"), {
+    addAfterLoader(webpackConfig, loaderByName('babel-loader'), {
       test: /\.(js|mjs|jsx|ts|tsx)$/,
       include: [paths.appSrc, ...optionalIncludes],
-      loader: require.resolve("esbuild-loader"),
+      loader: require.resolve('esbuild-loader'),
       options: esbuildLoaderOptions
         ? esbuildLoaderOptions
         : {
-            loader: useTypeScript ? "tsx" : "jsx",
-            target: "es2015",
+            loader: useTypeScript ? 'tsx' : 'jsx',
+            target: 'es2015',
           },
     });
 
     // remove the babel loaders
-    removeLoaders(webpackConfig, loaderByName("babel-loader"));
+    removeLoaders(webpackConfig, loaderByName('babel-loader'));
 
     // Replace terser with esbuild
     webpackConfig.optimization.minimizer[0] = new ESBuildMinifyPlugin(
       pluginOptions && pluginOptions.esbuildLoaderOptions
         ? pluginOptions.esbuildLoaderOptions
         : {
-            target: "es2015",
+            target: 'es2015',
           }
     );
 
@@ -56,10 +56,10 @@ module.exports = {
   overrideJestConfig: ({ jestConfig }) => {
     const options = {
       loaders: {
-        ".js": "jsx",
-        ".test.js": "jsx",
-        ".ts": "tsx",
-        ".test.ts": "tsx",
+        '.js': 'jsx',
+        '.test.js': 'jsx',
+        '.ts': 'tsx',
+        '.test.ts': 'tsx',
       },
     };
 
@@ -76,7 +76,7 @@ module.exports = {
     const babelKey = Object.keys(jestConfig.transform)[0];
 
     // We replace babelTransform and add loaders to esbuild-jest
-    jestConfig.transform[babelKey] = [require.resolve("esbuild-jest"), options];
+    jestConfig.transform[babelKey] = [require.resolve('esbuild-jest'), options];
 
     // Adds loader to all other transform options (2 in this case: cssTransform and fileTransform)
     // Reason for this is esbuild-jest plugin. It considers only loaders or other options from the last transformer
