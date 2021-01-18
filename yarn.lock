@@ -5354,7 +5354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"craco-esbuild@0.1.0, craco-esbuild@workspace:packages/craco-esbuild":
+"craco-esbuild@0.2.0, craco-esbuild@workspace:packages/craco-esbuild":
   version: 0.0.0-use.local
   resolution: "craco-esbuild@workspace:packages/craco-esbuild"
   dependencies:
@@ -16335,7 +16335,7 @@ typescript@~4.1.3:
     "@testing-library/jest-dom": ^5.11.6
     "@testing-library/react": ^11.2.2
     "@testing-library/user-event": ^12.6.0
-    craco-esbuild: 0.1.0
+    craco-esbuild: 0.2.0
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.1
@@ -16354,7 +16354,7 @@ typescript@~4.1.3:
     "@types/node": ^14.14.16
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
-    craco-esbuild: 0.1.0
+    craco-esbuild: 0.2.0
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.1
