@@ -13,6 +13,7 @@
     "react-scripts": "^3.3.0"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "esbuild-jest": "0.4.0",
     "esbuild-loader": "^2.9.1"
   },

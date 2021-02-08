@@ -2129,7 +2129,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/webpack@npm:5.5.0":
+"@svgr/webpack@npm:5.5.0, @svgr/webpack@npm:^5.5.0":
   version: 5.5.0
   resolution: "@svgr/webpack@npm:5.5.0"
   dependencies:
@@ -5055,6 +5055,7 @@ __metadata:
   resolution: "craco-esbuild@workspace:packages/craco-esbuild"
   dependencies:
     "@craco/craco": 6.1.1
+    "@svgr/webpack": ^5.5.0
     esbuild-jest: 0.4.0
     esbuild-loader: ^2.9.1
     react-scripts: 4.0.2

@@ -1,5 +1,10 @@
 const fs = require('fs');
-const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
+const {
+  loaderByName,
+  removeLoaders,
+  addAfterLoader,
+  addBeforeLoader,
+} = require('@craco/craco');
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
@@ -31,6 +36,12 @@ module.exports = {
             loader: useTypeScript ? 'tsx' : 'jsx',
             target: 'es2015',
           },
+    });
+
+    // handle svg via svgr
+    addBeforeLoader(webpackConfig, loaderByName('esbuild-loader'), {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
     });
 
     // remove the babel loaders
