@@ -26,6 +26,10 @@ module.exports = {
       filename: 'examples/with-typescript/package.json',
       updater: exampleUpdater,
     },
+    {
+      filename: 'examples/with-svgr/package.json',
+      updater: exampleUpdater,
+    },
   ],
   scripts: {
     postbump: 'yarn && git add yarn.lock && yarn prettier',
