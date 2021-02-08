@@ -13,11 +13,11 @@
     "react-scripts": "^3.3.0"
   },
   "dependencies": {
-    "esbuild-jest": "0.3.0",
-    "esbuild-loader": "^2.8.0"
+    "esbuild-jest": "0.4.0",
+    "esbuild-loader": "^2.9.1"
   },
   "devDependencies": {
-    "@craco/craco": "6.0.0",
-    "react-scripts": "4.0.1"
+    "@craco/craco": "6.1.1",
+    "react-scripts": "4.0.2"
   }
 }
