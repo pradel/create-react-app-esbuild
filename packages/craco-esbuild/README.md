@@ -54,6 +54,7 @@ To use `craco` instead of `react-scripts` to manage our application, edit the `s
 You can configure the options of the plugin by passing an `options` object.
 
 - `esbuildLoaderOptions`: customise the options passed down to the `esbuild` loader. _Note: This will be used only by webpack_
+- `includePaths`: include external directories in loader.
 
 For example add this configuration to your `craco.config.js` configuration file:
 
