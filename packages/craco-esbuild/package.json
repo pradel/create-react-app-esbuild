@@ -1,6 +1,6 @@
 {
   "name": "craco-esbuild",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "src/index.js",
   "repository": "https://github.com/pradel/create-react-app-esbuild.git",
   "author": "Leo Pradel <pradel.leo@gmail.com>",
