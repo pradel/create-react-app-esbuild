@@ -16,6 +16,11 @@ module.exports = {
     pluginOptions,
     context: { paths },
   }) => {
+    webpackConfig.module.rules.unshift({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    });
+
     const useTypeScript = fs.existsSync(paths.appTsConfig);
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
@@ -36,12 +41,6 @@ module.exports = {
             loader: useTypeScript ? 'tsx' : 'jsx',
             target: 'es2015',
           },
-    });
-
-    // handle svg via svgr
-    addBeforeLoader(webpackConfig, loaderByName('esbuild-loader'), {
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
     });
 
     // remove the babel loaders
