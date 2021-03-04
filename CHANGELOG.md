@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/pradel/create-react-app-esbuild/compare/v0.2.1...v0.3.0) (2021-03-04)
+
+
+### Features
+
+* add svgr support ([#14](https://github.com/pradel/create-react-app-esbuild/issues/14)) ([1cac975](https://github.com/pradel/create-react-app-esbuild/commit/1cac975b3e487912e595ad803cf773e5b58de974))
+
 ### [0.2.1](https://github.com/pradel/create-react-app-esbuild/compare/v0.2.0...v0.2.1) (2021-02-27)
 
 
