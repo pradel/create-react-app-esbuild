@@ -1,10 +1,5 @@
 const fs = require('fs');
-const {
-  loaderByName,
-  removeLoaders,
-  addAfterLoader,
-  addBeforeLoader,
-} = require('@craco/craco');
+const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
@@ -16,14 +11,20 @@ module.exports = {
     pluginOptions,
     context: { paths },
   }) => {
-    webpackConfig.module.rules.unshift({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    });
-
     const useTypeScript = fs.existsSync(paths.appTsConfig);
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
+
+    /**
+     * Enable the svgr plugin
+     * svg will not be loaded as a file anymore
+     */
+    if (pluginOptions && pluginOptions.enableSvgr) {
+      webpackConfig.module.rules.unshift({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      });
+    }
 
     // add includePaths custom option, for including files/components in other folders than src
     // Used as in addition to paths.appSrc, optional parameter.

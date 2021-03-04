@@ -55,6 +55,7 @@ You can configure the options of the plugin by passing an `options` object.
 
 - `esbuildLoaderOptions`: customise the options passed down to the `esbuild` loader. _Note: This will be used only by webpack_
 - `includePaths`: include external directories in loader.
+- `enableSvgr`: enable the svgr webpack plugin. SVGs are loaded as separate files by default. Enabling this options allow you to import SVGs as React components. See [CRA documentation](https://create-react-app.dev/docs/adding-images-fonts-and-files/#adding-svgs) for more detailed explanation.
 
 For example add this configuration to your `craco.config.js` configuration file:
 
