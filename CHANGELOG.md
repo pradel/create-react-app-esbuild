@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/pradel/create-react-app-esbuild/compare/v0.2.0...v0.2.1) (2021-02-27)
+
+
+### Bug Fixes
+
+* upgrade esbuild-jest to support jest mocks ([#16](https://github.com/pradel/create-react-app-esbuild/issues/16)) ([68dae43](https://github.com/pradel/create-react-app-esbuild/commit/68dae4360a01e692461d08b673ce61c8c196b777))
+
+
+### Miscellaneous Chores
+
+* upgrade esbuild-jest to 0.4 ([#13](https://github.com/pradel/create-react-app-esbuild/issues/13)) ([7db4e35](https://github.com/pradel/create-react-app-esbuild/commit/7db4e35a36f991f9e405d664b510875e2ed08a0c))
+
+
+### Documentation
+
+* document `includePaths` option ([49a9b1d](https://github.com/pradel/create-react-app-esbuild/commit/49a9b1dc6f10422cc5c413196c496431629cef3b))
+
 ## 0.2.0 (2021-01-18)
 
 
