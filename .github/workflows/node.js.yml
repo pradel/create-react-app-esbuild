@@ -35,15 +35,11 @@ jobs:
 
       - name: Compile create-react-app examples using react-scripts
         run: |
-          yarn workspaces foreach --include "with-javascript" run build-react-scripts
-          yarn workspaces foreach --include "with-typescript" run build-react-scripts
-          yarn workspaces foreach --include "with-svgr" run build-react-scripts
+          yarn workspaces foreach --include "with-*" run build-react-scripts
 
       - name: Test create-react-app examples using react-scripts
         run: |
-          yarn workspaces foreach --include "with-javascript" run test-react-scripts
-          yarn workspaces foreach --include "with-typescript" run test-react-scripts
-          yarn workspaces foreach --include "with-svgr" run test-react-scripts
+          yarn workspaces foreach --include "with-*" run test-react-scripts
 
   test:
     runs-on: ubuntu-latest
@@ -72,12 +68,8 @@ jobs:
 
       - name: Compile create-react-app examples using craco
         run: |
-          yarn workspaces foreach --include "with-javascript" run build
-          yarn workspaces foreach --include "with-typescript" run build
-          yarn workspaces foreach --include "with-svgr" run build
+          yarn workspaces foreach --include "with-*" run build
 
       - name: Test create-react-app examples using craco
         run: |
-          yarn workspaces foreach --include "with-javascript" run test
-          yarn workspaces foreach --include "with-typescript" run test
-          yarn workspaces foreach --include "with-svgr" run test
+          yarn workspaces foreach --include "with-*" run test
