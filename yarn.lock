@@ -5199,7 +5199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"craco-esbuild@0.2.1, craco-esbuild@workspace:packages/craco-esbuild":
+"craco-esbuild@workspace:packages/craco-esbuild":
   version: 0.0.0-use.local
   resolution: "craco-esbuild@workspace:packages/craco-esbuild"
   dependencies:
@@ -5209,23 +5209,10 @@ __metadata:
     esbuild-loader: ^2.9.2
     react-scripts: 4.0.2
   peerDependencies:
-    "@craco/craco": ^5.5.0
-    react-scripts: ^3.3.0
+    "@craco/craco": ^5.5.0 || ^6.0.0
+    react-scripts: ^3.3.0 || ^4.0.0
   languageName: unknown
   linkType: soft
-
-"craco-esbuild@npm:0.2.0":
-  version: 0.2.0
-  resolution: "craco-esbuild@npm:0.2.0"
-  dependencies:
-    esbuild-jest: 0.3.0
-    esbuild-loader: ^2.8.0
-  peerDependencies:
-    "@craco/craco": ^5.5.0
-    react-scripts: ^3.3.0
-  checksum: 9c6342487d6b60873635c35141de4db91bf2af81745acac38a16d6b10c0235238dd43a2160add0d0698bf78b21b803745b119f6233b88b08b456740216281945
-  languageName: node
-  linkType: hard
 
 "create-ecdh@npm:^4.0.0":
   version: 4.0.4
@@ -6389,15 +6376,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-jest@npm:0.3.0":
-  version: 0.3.0
-  resolution: "esbuild-jest@npm:0.3.0"
-  peerDependencies:
-    esbuild: ">=0.8.16"
-  checksum: 078a9d217ea1bf764a71eca75dcba655dd5a79d077e3973ae37f47434309e064183abf39abaa5bb4d6e9a8dc8d9ca5618aa676d9936c79d6f6c99a6222295bf3
-  languageName: node
-  linkType: hard
-
 "esbuild-jest@npm:0.5.0":
   version: 0.5.0
   resolution: "esbuild-jest@npm:0.5.0"
@@ -6411,7 +6389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-loader@npm:^2.8.0, esbuild-loader@npm:^2.9.2":
+"esbuild-loader@npm:^2.9.2":
   version: 2.9.2
   resolution: "esbuild-loader@npm:2.9.2"
   dependencies:
@@ -16114,7 +16092,7 @@ typescript@~4.1.5:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
     "@testing-library/user-event": ^12.6.3
-    craco-esbuild: 0.2.1
+    craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.2
@@ -16129,7 +16107,7 @@ typescript@~4.1.5:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
     "@testing-library/user-event": ^12.6.3
-    craco-esbuild: 0.2.0
+    craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.2
@@ -16148,7 +16126,7 @@ typescript@~4.1.5:
     "@types/node": ^14.14.25
     "@types/react": ^17.0.1
     "@types/react-dom": ^17.0.0
-    craco-esbuild: 0.2.1
+    craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.2

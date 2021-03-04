@@ -9,8 +9,8 @@
     "src"
   ],
   "peerDependencies": {
-    "@craco/craco": "^5.5.0",
-    "react-scripts": "^3.3.0"
+    "@craco/craco": "^5.5.0 || ^6.0.0",
+    "react-scripts": "^3.3.0 || ^4.0.0"
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
