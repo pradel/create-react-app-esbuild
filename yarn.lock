@@ -2278,7 +2278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/webpack@npm:5.5.0":
+"@svgr/webpack@npm:5.5.0, @svgr/webpack@npm:^5.5.0":
   version: 5.5.0
   resolution: "@svgr/webpack@npm:5.5.0"
   dependencies:
@@ -5199,17 +5199,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"craco-esbuild@0.2.1, craco-esbuild@workspace:packages/craco-esbuild":
+"craco-esbuild@workspace:packages/craco-esbuild":
   version: 0.0.0-use.local
   resolution: "craco-esbuild@workspace:packages/craco-esbuild"
   dependencies:
     "@craco/craco": 6.1.1
+    "@svgr/webpack": ^5.5.0
     esbuild-jest: 0.5.0
     esbuild-loader: ^2.9.2
     react-scripts: 4.0.2
   peerDependencies:
-    "@craco/craco": ^5.5.0
-    react-scripts: ^3.3.0
+    "@craco/craco": ^5.5.0 || ^6.0.0
+    react-scripts: ^3.3.0 || ^4.0.0
   languageName: unknown
   linkType: soft
 
@@ -16091,7 +16092,22 @@ typescript@~4.1.5:
     "@testing-library/jest-dom": ^5.11.9
     "@testing-library/react": ^11.2.5
     "@testing-library/user-event": ^12.6.3
-    craco-esbuild: 0.2.1
+    craco-esbuild: "workspace:packages/craco-esbuild"
+    react: ^17.0.1
+    react-dom: ^17.0.1
+    react-scripts: 4.0.2
+  languageName: unknown
+  linkType: soft
+
+"with-svgr@workspace:examples/with-svgr":
+  version: 0.0.0-use.local
+  resolution: "with-svgr@workspace:examples/with-svgr"
+  dependencies:
+    "@craco/craco": 6.1.1
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.2.5
+    "@testing-library/user-event": ^12.6.3
+    craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.2
@@ -16110,7 +16126,7 @@ typescript@~4.1.5:
     "@types/node": ^14.14.25
     "@types/react": ^17.0.1
     "@types/react-dom": ^17.0.0
-    craco-esbuild: 0.2.1
+    craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.2
