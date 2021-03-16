@@ -15,7 +15,7 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "esbuild-jest": "0.5.0",
-    "esbuild-loader": "^2.9.2"
+    "esbuild-loader": "^2.10.0"
   },
   "devDependencies": {
     "@craco/craco": "6.1.1",

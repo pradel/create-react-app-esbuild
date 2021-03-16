@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
   /**
@@ -55,8 +55,6 @@ module.exports = {
             target: 'es2015',
           }
     );
-
-    webpackConfig.plugins.push(new ESBuildPlugin());
 
     return webpackConfig;
   },
