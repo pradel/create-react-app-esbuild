@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/pradel/create-react-app-esbuild/compare/v0.3.0...v0.3.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* remove ESBuildPlugin import. ([#21](https://github.com/pradel/create-react-app-esbuild/issues/21)) ([2e25db5](https://github.com/pradel/create-react-app-esbuild/commit/2e25db51fd8678fcd8475a7abb5d75140ec0d0bb))
+
 ## [0.3.0](https://github.com/pradel/create-react-app-esbuild/compare/v0.2.1...v0.3.0) (2021-03-04)
 
 
