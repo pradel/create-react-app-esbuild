@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/pradel/create-react-app-esbuild/compare/v0.3.1...v0.3.2) (2021-04-28)
+
+
+### Miscellaneous Chores
+
+* upgrade deps ([#25](https://github.com/pradel/create-react-app-esbuild/issues/25)) ([f27f4e9](https://github.com/pradel/create-react-app-esbuild/commit/f27f4e9c4ad5dcb5a0e51106e0d667c338bda372))
+
 ### [0.3.1](https://github.com/pradel/create-react-app-esbuild/compare/v0.3.0...v0.3.1) (2021-03-16)
 
 
