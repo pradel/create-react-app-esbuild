@@ -56,7 +56,7 @@ You can configure the options of the plugin by passing an `options` object.
 - `esbuildLoaderOptions`: customise the options passed down to the `esbuild` loader. _Note: This will be used only by webpack_
 - `includePaths`: include external directories in loader.
 - `enableSvgr`: enable the svgr webpack plugin. SVGs are loaded as separate files by default. Enabling this options allow you to import SVGs as React components. See [CRA documentation](https://create-react-app.dev/docs/adding-images-fonts-and-files/#adding-svgs) for more detailed explanation.
-- `skipJest`: Avoid using `esbuild-jest` for jest configuration. Could be useful to avoid compatibility issues with transpiling tests.
+- `skipEsbuildJest`: Avoid using `esbuild-jest` for jest configuration. Could be useful to avoid compatibility issues with transpiling tests.
 
 For example add this configuration to your `craco.config.js` configuration file:
 
@@ -75,7 +75,7 @@ module.exports = {
           loader: 'jsx', // Set the value to 'tsx' if you use typescript 
           target: 'es2015',
         },
-        skipJest: true, // Optional. If you want to avoid modifying jest configuration
+        skipEsbuildJest: false, // Optional. Set to true if you want to use babel for jest tests
       },
     },
   ],

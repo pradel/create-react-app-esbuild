@@ -63,7 +63,7 @@ module.exports = {
    * To process the js/ts files we replace the babel-loader with the esbuild jest loader
    */
   overrideJestConfig: ({ jestConfig, pluginOptions }) => {
-    if (pluginOptions && pluginOptions.skipJest) return jestConfig;
+    if (pluginOptions && pluginOptions.skipEsbuildJest) return jestConfig;
 
     const options = {
       loaders: {
