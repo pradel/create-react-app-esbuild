@@ -72,7 +72,7 @@ module.exports = {
         includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
         enableSvgr: true, // Optional.
         esbuildLoaderOptions: {
-          loader: 'jsx', // Set the value to 'tsx' if you use typescript 
+          loader: 'jsx', // Set the value to 'tsx' if you use typescript
           target: 'es2015',
         },
         skipEsbuildJest: false, // Optional. Set to true if you want to use babel for jest tests
