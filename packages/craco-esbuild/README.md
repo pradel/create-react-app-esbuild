@@ -71,7 +71,7 @@ module.exports = {
         includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
         enableSvgr: true, // Optional.
         esbuildLoaderOptions: {
-          loader: 'jsx',
+          loader: 'jsx', // Set the value to 'tsx' if you use typescript 
           target: 'es2015',
         },
       },
