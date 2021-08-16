@@ -65,7 +65,7 @@ module.exports = {
   overrideJestConfig: ({ jestConfig, pluginOptions }) => {
     if (pluginOptions && pluginOptions.skipEsbuildJest) return jestConfig;
 
-    const options = {
+    const defaultEsbuildJestOptions = {
       loaders: {
         '.js': 'jsx',
         '.test.js': 'jsx',
@@ -74,9 +74,12 @@ module.exports = {
       },
     };
 
+    const esbuildJestOptions = (pluginOptions && pluginOptions.esbuildJestOptions) || defaultEsbuildJestOptions;
+
+
     // Replace babel transform with esbuild
     // babelTransform is first transformer key
-    /* 
+    /*
     transform:
       {
         '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': 'node_modules\\react-scripts\\config\\jest\\babelTransform.js',
@@ -87,7 +90,7 @@ module.exports = {
     const babelKey = Object.keys(jestConfig.transform)[0];
 
     // We replace babelTransform and add loaders to esbuild-jest
-    jestConfig.transform[babelKey] = [require.resolve('esbuild-jest'), options];
+    jestConfig.transform[babelKey] = [require.resolve('esbuild-jest'), esbuildJestOptions];
 
     // Adds loader to all other transform options (2 in this case: cssTransform and fileTransform)
     // Reason for this is esbuild-jest plugin. It considers only loaders or other options from the last transformer
@@ -105,9 +108,9 @@ module.exports = {
         Array.isArray(jestConfig.transform[key]) &&
         jestConfig.transform[key].length === 1
       ) {
-        jestConfig.transform[key].push(options);
+        jestConfig.transform[key].push(esbuildJestOptions);
       } else {
-        jestConfig.transform[key] = [jestConfig.transform[key], options];
+        jestConfig.transform[key] = [jestConfig.transform[key], esbuildJestOptions];
       }
     });
 
