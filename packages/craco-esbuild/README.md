@@ -80,9 +80,9 @@ module.exports = {
         esbuildJestOptions: {
           loaders: {
             '.ts': 'ts',
-            '.tsx': 'tsx'
-          }
-        }
+            '.tsx': 'tsx',
+          },
+        },
       },
     },
   ],

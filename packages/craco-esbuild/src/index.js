@@ -74,8 +74,9 @@ module.exports = {
       },
     };
 
-    const esbuildJestOptions = (pluginOptions && pluginOptions.esbuildJestOptions) || defaultEsbuildJestOptions;
-
+    const esbuildJestOptions =
+      (pluginOptions && pluginOptions.esbuildJestOptions) ||
+      defaultEsbuildJestOptions;
 
     // Replace babel transform with esbuild
     // babelTransform is first transformer key
@@ -90,7 +91,10 @@ module.exports = {
     const babelKey = Object.keys(jestConfig.transform)[0];
 
     // We replace babelTransform and add loaders to esbuild-jest
-    jestConfig.transform[babelKey] = [require.resolve('esbuild-jest'), esbuildJestOptions];
+    jestConfig.transform[babelKey] = [
+      require.resolve('esbuild-jest'),
+      esbuildJestOptions,
+    ];
 
     // Adds loader to all other transform options (2 in this case: cssTransform and fileTransform)
     // Reason for this is esbuild-jest plugin. It considers only loaders or other options from the last transformer
@@ -110,7 +114,10 @@ module.exports = {
       ) {
         jestConfig.transform[key].push(esbuildJestOptions);
       } else {
-        jestConfig.transform[key] = [jestConfig.transform[key], esbuildJestOptions];
+        jestConfig.transform[key] = [
+          jestConfig.transform[key],
+          esbuildJestOptions,
+        ];
       }
     });
 
