@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/pradel/create-react-app-esbuild/compare/v0.3.3...v0.3.4) (2021-08-16)
+
+
+### Features
+
+* add `esbuildJestOptions` to override esbuild-jest's options ([#34](https://github.com/pradel/create-react-app-esbuild/issues/34)) ([cbd7d03](https://github.com/pradel/create-react-app-esbuild/commit/cbd7d031011f5ce10f8217c06868998ddf9f5af0))
+
+
+### Miscellaneous Chores
+
+* prettier ([6b8e8e4](https://github.com/pradel/create-react-app-esbuild/commit/6b8e8e469ed71b9812d8553260b952cee11e2edd))
+
 ### [0.3.3](https://github.com/pradel/create-react-app-esbuild/compare/v0.3.2...v0.3.3) (2021-07-25)
 
 
