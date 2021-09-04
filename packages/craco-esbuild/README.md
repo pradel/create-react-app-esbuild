@@ -80,7 +80,7 @@ module.exports = {
         esbuildMinimizerOptions: { // Optional. Defaults to:
           target: 'es2015',
           css: true, // if true, OptimizeCssAssetsWebpackPlugin will also be replaced by esbuild.
-        }
+        },
         skipEsbuildJest: false, // Optional. Set to true if you want to use babel for jest tests,
         esbuildJestOptions: {
           loaders: {
