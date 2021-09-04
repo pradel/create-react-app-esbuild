@@ -54,6 +54,7 @@ To use `craco` instead of `react-scripts` to manage our application, edit the `s
 You can configure the options of the plugin by passing an `options` object.
 
 - `esbuildLoaderOptions`: customise the options passed down to the `esbuild` loader. _Note: This will be used only by webpack_
+- `esbuildMinimizerOptions`: customise the options passed down to `ESBuildMinifyPlugin`. _Note: This will be used only by webpack_
 - `includePaths`: include external directories in loader.
 - `enableSvgr`: enable the svgr webpack plugin. SVGs are loaded as separate files by default. Enabling this options allow you to import SVGs as React components. See [CRA documentation](https://create-react-app.dev/docs/adding-images-fonts-and-files/#adding-svgs) for more detailed explanation.
 - `skipEsbuildJest`: Avoid using `esbuild-jest` for jest configuration. Could be useful to avoid compatibility issues with transpiling tests.
@@ -72,10 +73,14 @@ module.exports = {
       options: {
         includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
         enableSvgr: true, // Optional.
-        esbuildLoaderOptions: {
+        esbuildLoaderOptions: { // Optional. Defaults to auto-detect loader.
           loader: 'jsx', // Set the value to 'tsx' if you use typescript
           target: 'es2015',
         },
+        esbuildMinimizerOptions: { // Optional. Defaults to:
+          target: 'es2015',
+          css: true, // if true, OptimizeCssAssetsWebpackPlugin will also be replaced by esbuild.
+        }
         skipEsbuildJest: false, // Optional. Set to true if you want to use babel for jest tests,
         esbuildJestOptions: {
           loaders: {

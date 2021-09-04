@@ -2,6 +2,16 @@ const fs = require('fs');
 const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
+const removeMinimizer = (webpackConfig, name) => {
+  const idx = webpackConfig.optimization.minimizer.findIndex(m => m.constructor.name === name)
+  webpackConfig.optimization.minimizer.splice(idx, 1);
+}
+
+const replaceMinimizer = (webpackConfig, name, minimizer) => {
+  const idx = webpackConfig.optimization.minimizer.findIndex(m => m.constructor.name === name)
+  webpackConfig.optimization.minimizer.splice(idx, 1, minimizer);
+}
+
 module.exports = {
   /**
    * To process the js/ts files we replace the babel-loader with the esbuild-loader
@@ -48,14 +58,17 @@ module.exports = {
     removeLoaders(webpackConfig, loaderByName('babel-loader'));
 
     // Replace terser with esbuild
-    webpackConfig.optimization.minimizer[0] = new ESBuildMinifyPlugin(
-      pluginOptions && pluginOptions.esbuildLoaderOptions
-        ? pluginOptions.esbuildLoaderOptions
-        : {
-            target: 'es2015',
-          }
-    );
-
+    const minimizerOptions = pluginOptions?.esbuildMinimizerOptions || {
+      target: 'es2015',
+      css: true,
+    };
+    replaceMinimizer(webpackConfig, 'TerserPlugin',  new ESBuildMinifyPlugin(
+      minimizerOptions
+    ));    
+    // remove the css OptimizeCssAssetsWebpackPlugin
+    if (minimizerOptions.css) {
+      removeMinimizer(webpackConfig, "OptimizeCssAssetsWebpackPlugin");
+    }
     return webpackConfig;
   },
 
