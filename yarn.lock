@@ -2313,7 +2313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.12.0":
+"@testing-library/jest-dom@npm:^5.14.1":
   version: 5.14.1
   resolution: "@testing-library/jest-dom@npm:5.14.1"
   dependencies:
@@ -2330,7 +2330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.2.6":
+"@testing-library/react@npm:^11.2.7":
   version: 11.2.7
   resolution: "@testing-library/react@npm:11.2.7"
   dependencies:
@@ -15857,8 +15857,8 @@ typescript@~4.4.2:
   resolution: "with-javascript@workspace:examples/with-javascript"
   dependencies:
     "@craco/craco": 6.2.0
-    "@testing-library/jest-dom": ^5.12.0
-    "@testing-library/react": ^11.2.6
+    "@testing-library/jest-dom": ^5.14.1
+    "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^12.8.3
     craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.2
@@ -15872,8 +15872,8 @@ typescript@~4.4.2:
   resolution: "with-svgr@workspace:examples/with-svgr"
   dependencies:
     "@craco/craco": 6.2.0
-    "@testing-library/jest-dom": ^5.12.0
-    "@testing-library/react": ^11.2.6
+    "@testing-library/jest-dom": ^5.14.1
+    "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^12.8.3
     craco-esbuild: "workspace:packages/craco-esbuild"
     react: ^17.0.2
@@ -15887,8 +15887,8 @@ typescript@~4.4.2:
   resolution: "with-typescript@workspace:examples/with-typescript"
   dependencies:
     "@craco/craco": 6.2.0
-    "@testing-library/jest-dom": ^5.12.0
-    "@testing-library/react": ^11.2.6
+    "@testing-library/jest-dom": ^5.14.1
+    "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^12.8.3
     "@types/jest": ^27.0.1
     "@types/node": ^16.7.10
