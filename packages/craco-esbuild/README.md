@@ -73,11 +73,13 @@ module.exports = {
       options: {
         includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
         enableSvgr: true, // Optional.
-        esbuildLoaderOptions: { // Optional. Defaults to auto-detect loader.
+        esbuildLoaderOptions: {
+          // Optional. Defaults to auto-detect loader.
           loader: 'jsx', // Set the value to 'tsx' if you use typescript
           target: 'es2015',
         },
-        esbuildMinimizerOptions: { // Optional. Defaults to:
+        esbuildMinimizerOptions: {
+          // Optional. Defaults to:
           target: 'es2015',
           css: true, // if true, OptimizeCssAssetsWebpackPlugin will also be replaced by esbuild.
         },
