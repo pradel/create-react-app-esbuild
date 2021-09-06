@@ -3,14 +3,18 @@ const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 const removeMinimizer = (webpackConfig, name) => {
-  const idx = webpackConfig.optimization.minimizer.findIndex(m => m.constructor.name === name)
+  const idx = webpackConfig.optimization.minimizer.findIndex(
+    (m) => m.constructor.name === name
+  );
   webpackConfig.optimization.minimizer.splice(idx, 1);
-}
+};
 
 const replaceMinimizer = (webpackConfig, name, minimizer) => {
-  const idx = webpackConfig.optimization.minimizer.findIndex(m => m.constructor.name === name)
+  const idx = webpackConfig.optimization.minimizer.findIndex(
+    (m) => m.constructor.name === name
+  );
   webpackConfig.optimization.minimizer.splice(idx, 1, minimizer);
-}
+};
 
 module.exports = {
   /**
@@ -62,12 +66,14 @@ module.exports = {
       target: 'es2015',
       css: true,
     };
-    replaceMinimizer(webpackConfig, 'TerserPlugin',  new ESBuildMinifyPlugin(
-      minimizerOptions
-    ));    
+    replaceMinimizer(
+      webpackConfig,
+      'TerserPlugin',
+      new ESBuildMinifyPlugin(minimizerOptions)
+    );
     // remove the css OptimizeCssAssetsWebpackPlugin
     if (minimizerOptions.css) {
-      removeMinimizer(webpackConfig, "OptimizeCssAssetsWebpackPlugin");
+      removeMinimizer(webpackConfig, 'OptimizeCssAssetsWebpackPlugin');
     }
     return webpackConfig;
   },
