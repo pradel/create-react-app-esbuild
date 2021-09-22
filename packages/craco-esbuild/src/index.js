@@ -62,7 +62,7 @@ module.exports = {
     removeLoaders(webpackConfig, loaderByName('babel-loader'));
 
     // Replace terser with esbuild
-    const minimizerOptions = pluginOptions?.esbuildMinimizerOptions || {
+    const minimizerOptions = (pluginOptions || {}).esbuildMinimizerOptions || {
       target: 'es2015',
       css: true,
     };
