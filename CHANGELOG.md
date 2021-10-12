@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/pradel/create-react-app-esbuild/compare/v0.4.1...v0.4.2) (2021-10-12)
+
+
+### Features
+
+* replace minifier only when used ([#42](https://github.com/pradel/create-react-app-esbuild/issues/42)) ([7453334](https://github.com/pradel/create-react-app-esbuild/commit/745333410391d4bb97fef76d21c0afbc2e65b631))
+
 ### [0.4.1](https://github.com/pradel/create-react-app-esbuild/compare/v0.4.0...v0.4.1) (2021-09-22)
 
 
