@@ -13,7 +13,7 @@ const replaceMinimizer = (webpackConfig, name, minimizer) => {
   const idx = webpackConfig.optimization.minimizer.findIndex(
     (m) => m.constructor.name === name
   );
-  webpackConfig.optimization.minimizer.splice(idx, 1, minimizer);
+  idx > -1 && webpackConfig.optimization.minimizer.splice(idx, 1, minimizer);
 };
 
 module.exports = {
