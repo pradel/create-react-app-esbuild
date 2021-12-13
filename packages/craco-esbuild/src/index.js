@@ -36,7 +36,10 @@ module.exports = {
     if (pluginOptions && pluginOptions.enableSvgr) {
       webpackConfig.module.rules.unshift({
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: [{
+          loader: '@svgr/webpack',
+          options: (pluginOptions && pluginOptions.svgrOptions) || {}
+        }],
       });
     }
 
