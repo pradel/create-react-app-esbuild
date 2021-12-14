@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/pradel/create-react-app-esbuild/compare/v0.4.2...v0.4.3) (2021-12-14)
+
+
+### Features
+
+* add `svgrOptions` to customize svgr plugin behavior ([#44](https://github.com/pradel/create-react-app-esbuild/issues/44)) ([4ebde9f](https://github.com/pradel/create-react-app-esbuild/commit/4ebde9fd73a0f243531a4570feb7873f8cacc55e))
+
 ### [0.4.2](https://github.com/pradel/create-react-app-esbuild/compare/v0.4.1...v0.4.2) (2021-10-12)
 
 
