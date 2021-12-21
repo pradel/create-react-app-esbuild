@@ -39,7 +39,17 @@ module.exports = {
         use: [
           {
             loader: require.resolve('@svgr/webpack'),
-            options: (pluginOptions && pluginOptions.svgrOptions) || {},
+            options: (pluginOptions && pluginOptions.svgrOptions) || {
+              // Config used by CRA
+              // https://github.com/facebook/create-react-app/blob/5614c87bfbaae0ce52ac15aedd2cd0f91ffd420d/packages/react-scripts/config/webpack.config.js#L390
+              prettier: false,
+              svgo: false,
+              svgoConfig: {
+                plugins: [{ removeViewBox: false }],
+              },
+              titleProp: true,
+              ref: true,
+            },
           },
         ],
       });
