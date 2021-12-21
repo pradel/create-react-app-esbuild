@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.4
+
+### Patch Changes
+
+- [#46](https://github.com/pradel/create-react-app-esbuild/pull/46) [`109a742`](https://github.com/pradel/create-react-app-esbuild/commit/109a7429b780c2c6dd1f55d12ae11e3ca72ed36a) Thanks [@pradel](https://github.com/pradel)! - Automate release process.
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [0.4.3](https://github.com/pradel/create-react-app-esbuild/compare/v0.4.2...v0.4.3) (2021-12-14)
