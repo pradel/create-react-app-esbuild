@@ -3,7 +3,7 @@
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx,yml}\"",
     "version": "pnpx changeset version && pnpm install --lockfile-only",
-    "release": "pnpm run build && pnpx changeset publish",
+    "release": "pnpx changeset publish",
     "prepare": "husky install"
   },
   "prettier": {
