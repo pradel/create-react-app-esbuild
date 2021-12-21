@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.5
+
+### Patch Changes
+
+- [#49](https://github.com/pradel/create-react-app-esbuild/pull/49) [`9e09177`](https://github.com/pradel/create-react-app-esbuild/commit/9e09177ca75051749705b9b957c07b01aabfd0b9) Thanks [@pradel](https://github.com/pradel)! - Use require.resolve to import the '@svgr/webpack' loader, this solve an issue that monorepo can have.
+
 ## 0.4.4
 
 ### Patch Changes
