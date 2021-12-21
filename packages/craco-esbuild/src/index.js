@@ -29,32 +29,6 @@ module.exports = {
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
 
-    /**
-     * Enable the svgr plugin
-     * svg will not be loaded as a file anymore
-     */
-    if (pluginOptions && pluginOptions.enableSvgr) {
-      webpackConfig.module.rules.unshift({
-        test: /\.svg$/,
-        use: [
-          {
-            loader: require.resolve('@svgr/webpack'),
-            options: (pluginOptions && pluginOptions.svgrOptions) || {
-              // Config used by CRA
-              // https://github.com/facebook/create-react-app/blob/5614c87bfbaae0ce52ac15aedd2cd0f91ffd420d/packages/react-scripts/config/webpack.config.js#L390
-              prettier: false,
-              svgo: false,
-              svgoConfig: {
-                plugins: [{ removeViewBox: false }],
-              },
-              titleProp: true,
-              ref: true,
-            },
-          },
-        ],
-      });
-    }
-
     // add includePaths custom option, for including files/components in other folders than src
     // Used as in addition to paths.appSrc, optional parameter.
     const optionalIncludes =

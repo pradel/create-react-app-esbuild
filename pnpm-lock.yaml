@@ -89,12 +89,10 @@ importers:
   packages/craco-esbuild:
     specifiers:
       '@craco/craco': 6.4.3
-      '@svgr/webpack': ^5.5.0
       esbuild-jest: 0.5.0
       esbuild-loader: ^2.18.0
       react-scripts: 5.0.0
     dependencies:
-      '@svgr/webpack': 5.5.0
       esbuild-jest: 0.5.0
       esbuild-loader: 2.18.0
     devDependencies:
