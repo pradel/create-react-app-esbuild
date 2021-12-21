@@ -14,32 +14,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.24.1
+
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14.x
+          cache: 'pnpm'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - run: yarn install --immutable
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Compile create-react-app examples using react-scripts
         run: |
-          yarn workspaces foreach --include "with-*" run build-react-scripts
+          pnpm run build-react-scripts --filter "with-*"
 
       - name: Test create-react-app examples using react-scripts
         run: |
-          yarn workspaces foreach --include "with-*" run test-react-scripts
+          pnpm run test-react-scripts --filter "with-*"
 
   test:
     runs-on: ubuntu-latest
@@ -47,29 +41,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.24.1
+
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14.x
+          cache: 'pnpm'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - run: yarn install --immutable
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Compile create-react-app examples using craco
         run: |
-          yarn workspaces foreach --include "with-*" run build
+          pnpm run build --filter "with-*"
 
       - name: Test create-react-app examples using craco
         run: |
-          yarn workspaces foreach --include "with-*" run test
+          pnpm run test --filter "with-*"
