@@ -39,6 +39,7 @@ importers:
   examples/with-svgr:
     specifiers:
       '@craco/craco': 6.2.0
+      '@svgr/webpack': ^6.1.0
       '@testing-library/jest-dom': ^5.16.1
       '@testing-library/react': ^12.1.2
       '@testing-library/user-event': ^13.5.0
@@ -48,6 +49,7 @@ importers:
       react-scripts: 5.0.0
     dependencies:
       '@craco/craco': 6.2.0_react-scripts@5.0.0
+      '@svgr/webpack': 6.1.2
       '@testing-library/jest-dom': 5.16.1
       '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
       '@testing-library/user-event': 13.5.0
