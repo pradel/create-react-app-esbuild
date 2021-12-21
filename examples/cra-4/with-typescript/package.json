@@ -1,0 +1,47 @@
+{
+  "name": "with-typescript-cra-4",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "6.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.10",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "craco-esbuild": "workspace:craco-esbuild",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "~4.4.2"
+  },
+  "scripts": {
+    "start": "craco start",
+    "start-react-scripts": "react-scripts start",
+    "build": "craco build",
+    "build-react-scripts": "react-scripts build",
+    "test": "craco test",
+    "test-react-scripts": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
