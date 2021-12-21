@@ -38,7 +38,7 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: '@svgr/webpack',
+            loader: require.resolve('@svgr/webpack'),
             options: (pluginOptions && pluginOptions.svgrOptions) || {},
           },
         ],
