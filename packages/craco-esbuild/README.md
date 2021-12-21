@@ -7,6 +7,7 @@ Use [esbuild](https://github.com/evanw/esbuild) in your [create-react-app](https
 - Replace babel-loader with esbuild during development
 - Replace babel-loader with esbuild for faster build time
 - Replace terser with esbuild for faster build time
+- Replace OptimizeCssAssetsWebpackPlugin with esbuild for faster build time
 - Use esbuild when running jest
 
 ## Installation
