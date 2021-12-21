@@ -11,7 +11,7 @@
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
-    "craco-esbuild": "workspace:packages/craco-esbuild",
+    "craco-esbuild": "workspace:craco-esbuild",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
