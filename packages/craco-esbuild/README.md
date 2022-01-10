@@ -7,6 +7,7 @@ Use [esbuild](https://github.com/evanw/esbuild) in your [create-react-app](https
 - Replace babel-loader with esbuild during development
 - Replace babel-loader with esbuild for faster build time
 - Replace terser with esbuild for faster build time
+- Replace OptimizeCssAssetsWebpackPlugin with esbuild for faster build time
 - Use esbuild when running jest
 
 ## Installation
@@ -56,8 +57,6 @@ You can configure the options of the plugin by passing an `options` object.
 - `esbuildLoaderOptions`: customise the options passed down to the `esbuild` loader. _Note: This will be used only by webpack_
 - `esbuildMinimizerOptions`: customise the options passed down to `ESBuildMinifyPlugin`. _Note: This will be used only by webpack_
 - `includePaths`: include external directories in loader.
-- `enableSvgr`: enable the svgr webpack plugin. SVGs are loaded as separate files by default. Enabling this options allow you to import SVGs as React components. See [CRA documentation](https://create-react-app.dev/docs/adding-images-fonts-and-files/#adding-svgs) for more detailed explanation.
-- `svgrOptions`: customise the options passed down to the `svgr` loader.
 - `skipEsbuildJest`: Avoid using `esbuild-jest` for jest configuration. Could be useful to avoid compatibility issues with transpiling tests.
 - `esbuildJestOptions`: customise the [options](https://github.com/aelbore/esbuild-jest#setting-up-jest-config-file-with-transformoptions) passed down to the `esbuild-jest` transformer.
 
@@ -73,11 +72,6 @@ module.exports = {
       plugin: CracoEsbuildPlugin,
       options: {
         includePaths: ['/external/dir/with/components'], // Optional. If you want to include components which are not in src folder
-        enableSvgr: true, // Optional.
-        svgrOptions: {
-          // Optional. is enableSvgr set to true, used as options for svgr
-          icon: true,
-        },
         esbuildLoaderOptions: {
           // Optional. Defaults to auto-detect loader.
           loader: 'jsx', // Set the value to 'tsx' if you use typescript

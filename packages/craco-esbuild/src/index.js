@@ -29,22 +29,6 @@ module.exports = {
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
 
-    /**
-     * Enable the svgr plugin
-     * svg will not be loaded as a file anymore
-     */
-    if (pluginOptions && pluginOptions.enableSvgr) {
-      webpackConfig.module.rules.unshift({
-        test: /\.svg$/,
-        use: [
-          {
-            loader: require.resolve('@svgr/webpack'),
-            options: (pluginOptions && pluginOptions.svgrOptions) || {},
-          },
-        ],
-      });
-    }
-
     // add includePaths custom option, for including files/components in other folders than src
     // Used as in addition to paths.appSrc, optional parameter.
     const optionalIncludes =
