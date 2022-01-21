@@ -16,9 +16,9 @@ Run the following command to install `craco-esbuild` in your project:
 
 ```sh
 yarn add --dev craco-esbuild @craco/craco
-
-# OR
-
+```
+OR
+```sh
 npm install --save-dev craco-esbuild @craco/craco
 ```
 
