@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2
+
+### Patch Changes
+
+- [#63](https://github.com/pradel/create-react-app-esbuild/pull/63) [`8aa74cd`](https://github.com/pradel/create-react-app-esbuild/commit/8aa74cdce93d19955ac2050fbf6512981a9eaa0b) Thanks [@jiejasonliu](https://github.com/jiejasonliu)! - Include @craco/craco@7.0.0-alpha.* versions in peerDependencies
+
 ## 0.5.1
 
 ### Patch Changes
