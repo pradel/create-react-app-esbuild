@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x, 18.x, 20.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x, 18.x, 20.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -64,8 +64,8 @@ jobs:
 
       - name: Compile create-react-app examples using craco
         run: |
-          pnpm run build --filter "with-*"
+          pnpm run --filter "with-*" build
 
       - name: Test create-react-app examples using craco
         run: |
-          pnpm run test --filter "with-*"
+          pnpm run --filter "with-*" test
