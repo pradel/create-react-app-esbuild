@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "esbuild-jest": "0.5.0",
-    "esbuild-loader": "^2.18.0"
+    "esbuild-loader": "^4.0.1"
   },
   "devDependencies": {
-    "@craco/craco": "6.4.3",
+    "@craco/craco": "7.0.0",
     "react-scripts": "5.0.0"
   }
 }
