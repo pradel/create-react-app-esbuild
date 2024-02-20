@@ -2,6 +2,20 @@ const fs = require('fs');
 const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
+const removeMinimizer = (webpackConfig, name) => {
+  const idx = webpackConfig.optimization.minimizer.findIndex(
+    (m) => m.constructor.name === name
+  );
+  webpackConfig.optimization.minimizer.splice(idx, 1);
+};
+
+const replaceMinimizer = (webpackConfig, name, minimizer) => {
+  const idx = webpackConfig.optimization.minimizer.findIndex(
+    (m) => m.constructor.name === name
+  );
+  idx > -1 && webpackConfig.optimization.minimizer.splice(idx, 1, minimizer);
+};
+
 module.exports = {
   /**
    * To process the js/ts files we replace the babel-loader with the esbuild-loader
@@ -14,17 +28,6 @@ module.exports = {
     const useTypeScript = fs.existsSync(paths.appTsConfig);
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
-
-    /**
-     * Enable the svgr plugin
-     * svg will not be loaded as a file anymore
-     */
-    if (pluginOptions && pluginOptions.enableSvgr) {
-      webpackConfig.module.rules.unshift({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      });
-    }
 
     // add includePaths custom option, for including files/components in other folders than src
     // Used as in addition to paths.appSrc, optional parameter.
@@ -48,14 +51,19 @@ module.exports = {
     removeLoaders(webpackConfig, loaderByName('babel-loader'));
 
     // Replace terser with esbuild
-    webpackConfig.optimization.minimizer[0] = new ESBuildMinifyPlugin(
-      pluginOptions && pluginOptions.esbuildLoaderOptions
-        ? pluginOptions.esbuildLoaderOptions
-        : {
-            target: 'es2015',
-          }
+    const minimizerOptions = (pluginOptions || {}).esbuildMinimizerOptions || {
+      target: 'es2015',
+      css: true,
+    };
+    replaceMinimizer(
+      webpackConfig,
+      'TerserPlugin',
+      new ESBuildMinifyPlugin(minimizerOptions)
     );
-
+    // remove the css OptimizeCssAssetsWebpackPlugin
+    if (minimizerOptions.css) {
+      removeMinimizer(webpackConfig, 'OptimizeCssAssetsWebpackPlugin');
+    }
     return webpackConfig;
   },
 
@@ -74,8 +82,9 @@ module.exports = {
       },
     };
 
-    const esbuildJestOptions = (pluginOptions && pluginOptions.esbuildJestOptions) || defaultEsbuildJestOptions;
-
+    const esbuildJestOptions =
+      (pluginOptions && pluginOptions.esbuildJestOptions) ||
+      defaultEsbuildJestOptions;
 
     // Replace babel transform with esbuild
     // babelTransform is first transformer key
@@ -90,7 +99,10 @@ module.exports = {
     const babelKey = Object.keys(jestConfig.transform)[0];
 
     // We replace babelTransform and add loaders to esbuild-jest
-    jestConfig.transform[babelKey] = [require.resolve('esbuild-jest'), esbuildJestOptions];
+    jestConfig.transform[babelKey] = [
+      require.resolve('esbuild-jest'),
+      esbuildJestOptions,
+    ];
 
     // Adds loader to all other transform options (2 in this case: cssTransform and fileTransform)
     // Reason for this is esbuild-jest plugin. It considers only loaders or other options from the last transformer
@@ -110,7 +122,10 @@ module.exports = {
       ) {
         jestConfig.transform[key].push(esbuildJestOptions);
       } else {
-        jestConfig.transform[key] = [jestConfig.transform[key], esbuildJestOptions];
+        jestConfig.transform[key] = [
+          jestConfig.transform[key],
+          esbuildJestOptions,
+        ];
       }
     });
 

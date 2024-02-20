@@ -2,17 +2,24 @@
   "private": true,
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,md,mdx,yml}\"",
-    "release": "standard-version -a && yarn workspace craco-esbuild npm publish"
+    "version": "pnpx changeset version && pnpm install --lockfile-only",
+    "release": "pnpx changeset publish",
+    "prepare": "husky install"
   },
   "prettier": {
     "singleQuote": true
   },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
+  "lint-staged": {
+    "*.{js,ts,tsx,css,scss,json,md,mdx,yml}": [
+      "prettier --write",
+      "git  add"
+    ]
+  },
   "devDependencies": {
-    "prettier": "2.2.1",
-    "standard-version": "9.2.0"
+    "@changesets/changelog-github": "0.4.2",
+    "@changesets/cli": "2.19.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.1.7",
+    "prettier": "2.5.1"
   }
 }
