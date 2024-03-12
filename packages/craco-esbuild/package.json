@@ -9,7 +9,7 @@
     "src"
   ],
   "peerDependencies": {
-    "@craco/craco": "^^7.0.0 || ^7.0.0-alpha",
+    "@craco/craco": "^^7.0.0",
     "react-scripts": "^5.0.0"
   },
   "dependencies": {
