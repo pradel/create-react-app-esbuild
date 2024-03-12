@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- [#73](https://github.com/pradel/create-react-app-esbuild/pull/73) [`935c2f9`](https://github.com/pradel/create-react-app-esbuild/commit/935c2f9ed35c9ef37ad3750652ad163508c50cb8) Thanks [@Crecket](https://github.com/Crecket)! - Updated esbuild-loader to v4 and craco to v7.
+
 ## 0.5.2
 
 ### Patch Changes
