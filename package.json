@@ -9,6 +9,9 @@
   "prettier": {
     "singleQuote": true
   },
+  "engines" : {
+    "node": ">=18.0.0"
+  },
   "lint-staged": {
     "*.{js,ts,tsx,css,scss,json,md,mdx,yml}": [
       "prettier --write",

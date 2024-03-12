@@ -13,14 +13,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x]
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.24.1
+          version: 8.15.1
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -33,25 +33,25 @@ jobs:
 
       - name: Compile create-react-app examples using react-scripts
         run: |
-          pnpm run build-react-scripts --filter "with-*"
+          pnpm run --filter "with-*" build-react-scripts
 
       - name: Test create-react-app examples using react-scripts
         run: |
-          pnpm run test-react-scripts --filter "with-*"
+          pnpm run --filter "with-*" test-react-scripts
 
   test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x]
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.24.1
+          version: 8.15.1
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -64,8 +64,8 @@ jobs:
 
       - name: Compile create-react-app examples using craco
         run: |
-          pnpm run build --filter "with-*"
+          pnpm run --filter "with-*" build
 
       - name: Test create-react-app examples using craco
         run: |
-          pnpm run test --filter "with-*"
+          pnpm run --filter "with-*" test

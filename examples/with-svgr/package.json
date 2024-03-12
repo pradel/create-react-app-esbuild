@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "6.4.3",
-    "@testing-library/jest-dom": "^5.16.1",
+    "@craco/craco": "7.0.0",
+    "@testing-library/jest-dom": "^6.3.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "craco-esbuild": "workspace:craco-esbuild",

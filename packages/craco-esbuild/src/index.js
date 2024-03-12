@@ -1,6 +1,5 @@
-const fs = require('fs');
 const { loaderByName, removeLoaders, addAfterLoader } = require('@craco/craco');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const { EsbuildPlugin } = require('esbuild-loader');
 
 const removeMinimizer = (webpackConfig, name) => {
   const idx = webpackConfig.optimization.minimizer.findIndex(
@@ -25,7 +24,6 @@ module.exports = {
     pluginOptions,
     context: { paths },
   }) => {
-    const useTypeScript = fs.existsSync(paths.appTsConfig);
     const esbuildLoaderOptions =
       pluginOptions && pluginOptions.esbuildLoaderOptions;
 
@@ -42,7 +40,6 @@ module.exports = {
       options: esbuildLoaderOptions
         ? esbuildLoaderOptions
         : {
-            loader: useTypeScript ? 'tsx' : 'jsx',
             target: 'es2015',
           },
     });
@@ -58,7 +55,7 @@ module.exports = {
     replaceMinimizer(
       webpackConfig,
       'TerserPlugin',
-      new ESBuildMinifyPlugin(minimizerOptions)
+      new EsbuildPlugin(minimizerOptions)
     );
     // remove the css OptimizeCssAssetsWebpackPlugin
     if (minimizerOptions.css) {
