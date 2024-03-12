@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- [#77](https://github.com/pradel/create-react-app-esbuild/pull/77) [`14c3d80`](https://github.com/pradel/create-react-app-esbuild/commit/14c3d80ee8799615d23dd47075c1752fcc1742c4) Thanks [@pradel](https://github.com/pradel)! - Fix invalid craco version in package.json.
+
 ## 0.6.0
 
 ### Minor Changes
