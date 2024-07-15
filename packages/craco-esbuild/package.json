@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "esbuild-jest": "0.5.0",
-    "esbuild-loader": "^4.0.1"
+    "esbuild-loader": "^4.2.1"
   },
   "devDependencies": {
     "@craco/craco": "7.0.0",
